@@ -1,0 +1,10 @@
+{% extends 'users/base.html' %}
+
+{% block title%}Login to create{% endblock %}
+
+{% block main%}
+
+<h1>Hello, to create, update or delete blog you need to login first.</h1>
+<h4>You can <a href="{% url 'login' %}"> log in now</a>.</h4>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'users/base.html' %}
+
+{% block title%}Users{% endblock %}
+
+{% block main%}
+
+<h4><strong>Total users registered: {{count}}</strong></h4><br>
+<table>
+    <tr>
+      <th><strong></strong></th>
+      <th><strong>User ID</strong></th>
+      <th><strong>First Name</strong></th>
+      <th><strong>Last Name</strong></th>
+      <th><strong>E-mail</strong></th>
+      <th><strong>User Name</strong></th>
+      <th><strong>About</strong></th>
+      <th><strong>Age</strong></th>
+      <th><strong>Gender</strong></th>
+      <th><strong>Country</strong></th>
+      <th><strong>Birth Date</strong></th>
+    </tr>
+
+    {% for user in total|dictsort:"id"  %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{user.id}}</td>
+        <td><a href="{% url 'details' user.id  %}">{{user.first_name}}</a></td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.about}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.country}}</td>
+        <td>{{user.birth_date}}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

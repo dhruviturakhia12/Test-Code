@@ -1,0 +1,23 @@
+{%  extends 'users/base.html' %}
+{% block title%}Update Blog{% endblock %}
+{% block main%}
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card card-body">
+			<br>
+
+		<h1>Hello {{user.first_name}}, Update your blog here!</h1><br>
+			<form action="" method="POST">
+				{% csrf_token %}
+			    {{ form.as_p}}
+    		<button type="submit" class="btn">Save changes</button>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

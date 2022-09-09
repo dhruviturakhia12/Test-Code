@@ -1,0 +1,24 @@
+{% extends 'users/base.html' %}
+
+{% block title%}User Details{% endblock %}
+
+{% block main%}
+
+<h2>Blog details</h2>
+        <h3><strong>Blog ID: </strong>{{blog_detail.id}}</h3><br>
+        <h3><strong>Blog Name: </strong>{{blog_detail.name}}</h3><br>
+        <h3><strong>Tag Line: </strong>{{blog_detail.tagline}}</h3><br>
+        <h3><strong>Description: </strong>{{blog_detail.description}}</h3><br>
+        <h3><strong>Type: </strong>{{blog_detail.blogtype}}</h3><br>
+        <h3><strong>Date Created: </strong>{{blog_detail.date_created}}</h3><br>
+
+{% if user.is_authenticated %}
+<button><a  class="btn" href="{% url 'update-blog' blog_detail.id %}">Update Blog</a></button>
+<button><a  class="btn" href="{% url 'delete-blog' blog_detail.id %}">Delete Blog</a></button>
+{% else %}
+<button><a href="/login/required/" class="btn">Update Blog</a></button>
+<button><a href="/login/required/" class="btn">Delete Blog</a></button>
+
+{% endif %}
+
+{% endblock %}

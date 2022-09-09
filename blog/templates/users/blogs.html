@@ -1,0 +1,35 @@
+{% extends 'users/base.html' %}
+
+{% block title%}Blogs{% endblock %}
+
+{% block main%}
+
+<h4><strong>Total blogs: {{count}}</strong></h4><br>
+<table>
+    <tr>
+      <th><strong></strong></th>
+      <th><strong>Blog ID</strong></th>
+      <th><strong>Name</strong></th>
+      <th><strong>Tag Line</strong></th>
+      <th><strong>Type</strong></th>
+
+    </tr>
+
+    {% for blog in total|dictsort:"id"  %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{blog.id}}</td>
+        <td><a href="{% url 'blog-details' blog.id  %}">{{blog.name}}</a></td>
+        <td>{{blog.tagline}}</td>
+        <td>{{blog.blogtype}}</td>
+  </tr>
+    {% endfor %}
+</table><br>
+
+{% if user.is_authenticated %}
+<button><a href="{% url 'create-blog' %}" class="btn">Create Blog</a></button>
+{% else %}
+<button><a href="/login/required/" class="btn">Create Blog</a></button>
+{% endif %}
+
+{% endblock %}

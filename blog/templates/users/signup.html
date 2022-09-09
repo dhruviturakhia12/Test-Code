@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+
+{% block title%}Email Verification{% endblock %}
+
+{% block main%}
+
+<div class="container">
+        <div class="row justify-content-center">  
+            <div class="col-md-10 shadow-sm p-3 mb-5 bg-white rounded">
+                <h2>This is Signup Page.</h2>
+                <form method="post">  
+                    {% csrf_token %}
+
+                    <div class="form-group">  
+                        <label for="first_name">First Name:</label> <br>
+                        <input type="text" class="input" id="first_name" placeholder="Enter first name" name="first_name">
+                    </div>  
+                    <div class="form-group">  
+                        <label for="last_name">Last Name:</label><br>
+                        <input type="text" class="input" id="last_name" placeholder="Enter last name" name="last_name">
+                    </div>  
+                    <div class="form-group">  
+                        <label for="username">Username:</label><br>
+                        <input type="text" class="input " id="username" placeholder="Enter username" name="username">
+                    </div>  
+                    <div class="form-group">  
+                        <label for="email">Email:</label><br>
+                        <input type="email" class="input" id="email" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">  
+                        <label for="pwd1">Password:</label><br>
+                        <input type="password" class="input" id="pwd1" placeholder="Enter password" name="password1">
+                    </div>  
+                    <div class="form-group">  
+                        <label for="pwd2">Confirm Password:</label><br>
+                        <input type="password" class="input" id="pwd2" placeholder="Re-enter password" name="password2">
+                    <div class="form-group">
+                        <label for="pwd2">Age</label><br>
+                        <input type="number" class="input" id="age" placeholder="Age" name="age">
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </div>  
+    </div>
+
+{% endblock %}

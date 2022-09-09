@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+table,th,td {
+  border:1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.space{
+    margin-left:850px
+    }
+.btn, .input{
+    padding:10px 50px;
+    margin: 5px;
+    font-size:20px
+}
+</style>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'home' %}">Authentication system</a>
+    </div>
+    <ul class="nav navbar-nav">
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'users' %}">Users</a></li>
+        <li><a href="{% url 'blogs' %}">Blogs</a></li>
+        <li><a href="/change-password/">Change Password</a></li>
+        <li><a href="/reset-password/">Reset Password</a></li>
+        <li><a href="{% url 'update_user' user.id %}">Update details</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a class="space">Welcome, {{user.first_name}}</a></li>
+
+        {% else %}
+        <li><a href="{% url 'users' %}">Users</a></li>
+        <li><a href="{% url 'blogs' %}">Blogs</a></li>
+        <li><a href="{% url 'signup' %}">Signup</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+{% block main%}{% endblock %}
+</div>
+
+</body>
+</html>

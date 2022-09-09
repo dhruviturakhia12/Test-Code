@@ -1,0 +1,19 @@
+{% extends 'users/base.html' %}
+
+{% block title%}User Details{% endblock %}
+
+{% block main%}
+
+        <h2>User details</h2>
+        <h3><strong>User ID: </strong>{{user_detail.id}}</h3><br>
+        <h3><strong>First Name: </strong>{{user_detail.first_name}}</h3><br>
+        <h3><strong>Last Name: </strong>{{user_detail.last_name}}</h3><br>
+        <h3><strong>E-mail: </strong>{{user_detail.email}}</h3><br>
+        <h3><strong>User Name: </strong>{{user_detail.username}}</h3><br>
+        <h3><strong>About: </strong>{{user_detail.about}}</h3><br>
+        <h3><strong>Age: </strong>{{user_detail.age}}</h3><br>
+        <h3><strong>Gender: </strong>{{user_detail.gender}}</h3><br>
+        <h3><strong>Country: </strong>{{user_detail.country}}</h3><br>
+        <h3><strong>Birth Date: </strong>{{user_detail.birth_date}}</h3><br>
+
+{% endblock %}

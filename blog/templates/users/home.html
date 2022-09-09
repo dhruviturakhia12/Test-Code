@@ -1,0 +1,25 @@
+{% extends 'users/base.html' %}
+
+{% block title%}Homepage{% endblock %}
+
+{% block main%}
+
+<h1>Authentication system</h1>
+{% if user.is_authenticated %}
+<h2>Welcome, <strong>{{user.first_name}}</strong></h2>
+<button type="submit" ><a href="{% url 'logout' %}" class="btn">Logout</a></button>
+<button type="submit" ><a href="{% url 'update_user' user.id %}" class="btn">Update</a></button>
+
+{% for people in NewUser %}
+<h4>{{people.user_name}}</h4>
+{% endfor %}
+<h4>{{users.first_name}}</h4>
+{% else %}
+
+<h2>Welcome user, please log in!</h2>
+<button type="submit" class="btn" onclick="location.href = 'signup/'" >Signup</button>
+<button type="submit" class="btn" onclick="location.href = 'login/'">Login</button>
+<button  onclick="location.href = 'login/required/'" class="btn">Create Blog</button>
+{% endif %}
+
+{% endblock %}
